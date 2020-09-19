@@ -1,11 +1,11 @@
-import * as express from 'express';
+import express from 'express';
 
 const app: express.Application = express();
 const router: express.Router = express.Router();
 const port = process.env.PORT || 3000;
 
 router.get('/', (req: express.Request, res: express.Response) => {
-  res.send('Hello, Express with TypeScript!');
+  res.send('Hello, Express with TypeScript!aaaa ccc');
 });
 app.use('/', router);
 
