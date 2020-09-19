@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node ./dist/server.js",
+    "start": "PORT=8080 node ./dist/server.js",
     "build": "NODE_ENV=production webpack --config webpack.config.js -p",
     "dev": "webpack --config webpack.config.js & nodemon ./dist/server.js localhost 3000",
     "lint": "eslint . --ext .js,.ts"
