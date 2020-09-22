@@ -15,10 +15,10 @@ COPY yarn.lock ./
 RUN yarn install --production
 
 # Copy local code to the container image.
-COPY . ./
+COPY /dist ./dist
 
 # open port 8080
 EXPOSE 8080
 
 # Run the web service on container startup.
-CMD [ "npm", "start" ]
+CMD [ "yarn", "start" ]
