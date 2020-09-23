@@ -1,0 +1,50 @@
+# ci周りのworkflow
+
+name:
+  "ci"
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  ci:
+    runs-on:
+      'ubuntu-latest'
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - name: checkout repo
+      - uses: actions/checkout@v2
+
+      - name: setup node.js
+      - uses: actions/setup-node@v2-beta
+        with:
+            node-version: ${{ matrix.node-version }}
+
+      # cf. https://github.com/actions/cache/blob/main/examples.md#node---yarn
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+
+      - uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install node_modules
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: yarn install
+
+      - name: run lint
+        run: yarn lint
+
+      - name: run build
+        run: yarn build
+# TODO: jestを回す
