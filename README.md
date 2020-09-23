@@ -14,4 +14,9 @@ feature
 - 様々な情報と連携して体重の増減を可視化できる
 
 ## test
+
 test
+
+## ci
+
+github/workflow/ci.yml
