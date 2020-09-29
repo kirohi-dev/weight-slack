@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { slack } from '@/env';
+import { slack } from '../../../env';
 import { ISendSlackContext } from 'models/messenger/SendSlackContext';
 
 export interface ISendSlackRepository {
