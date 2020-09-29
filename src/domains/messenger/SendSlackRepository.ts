@@ -13,6 +13,7 @@ export class SendSlackRepository implements ISendSlackRepository {
     const headers = {
       accept: 'application/json',
     };
+    console.log(process.env.SLACK_WEBHOOK_URL!);
     await axios.post(
       process.env.SLACK_WEBHOOK_URL!,
       {
