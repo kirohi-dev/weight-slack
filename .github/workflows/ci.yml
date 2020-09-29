@@ -47,4 +47,6 @@ jobs:
 
       - name: run build
         run: yarn build
-# TODO: jestを回す
+
+      - name: run jest
+        run: yarn test
