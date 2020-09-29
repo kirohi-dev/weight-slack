@@ -24,7 +24,7 @@ const port = process.env.PORT || 8080;
 app.use(express.json());
 
 router.get('/', (req: express.Request, res: express.Response) => {
-  res.send(process.env);
+  res.send('test');
 });
 
 router.post(
