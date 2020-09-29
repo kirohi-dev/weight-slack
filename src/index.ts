@@ -1,9 +1,12 @@
 import express from 'express';
+import dotenv from 'dotenv';
 import { SendSlackService } from 'domains/messenger/SendSlackService';
 import { SendSlackRepository } from 'domains/messenger/SendSlackRepository';
 import { CreateWeightService } from 'domains/weight/CreateWeightService';
 import { SendClackContextTranslator } from 'translator/messenger/SendSlackContextTranslator';
 import { WeightContextTranslator } from 'translator/weight/WeightContextTranslator';
+
+dotenv.config(); // .envをprosess.envに割り当て
 
 const sendClackContextTranslator = new SendClackContextTranslator();
 const weightContextTranslator = new WeightContextTranslator();

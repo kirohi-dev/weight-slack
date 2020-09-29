@@ -1,6 +1,8 @@
 import axios from 'axios';
-import { slack } from '../../../env';
+import dotenv from 'dotenv';
 import { ISendSlackContext } from 'models/messenger/SendSlackContext';
+
+dotenv.config();
 
 export interface ISendSlackRepository {
   sendMessage(context: ISendSlackContext): Promise<void>;
@@ -12,7 +14,7 @@ export class SendSlackRepository implements ISendSlackRepository {
       accept: 'application/json',
     };
     await axios.post(
-      slack.webhookUrl,
+      process.env.SLACK_WEBHOOK_URL!,
       {
         text: context.message,
       },
