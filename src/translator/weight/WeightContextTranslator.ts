@@ -9,8 +9,8 @@ export class WeightContextTranslator implements IWeightContextTranslator {
   translateFromRequest(req: Request): IWeightContext {
     console.log(req.body);
     return {
-      weight: req.body.kg,
-      fatPercent: req.body.percent,
+      weight: Number(req.body.kg),
+      fatPercent: Number(req.body.percent),
       createdAt: new Date(),
       updatedAt: new Date(),
     };
