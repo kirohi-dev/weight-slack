@@ -21,6 +21,12 @@ module.exports = {
     ],
   },
   resolve: {
+    alias: {
+      '@': path.resolve(__dirname, '/'),
+      models: path.resolve(__dirname, '/src/domains/models/'),
+      domains: path.resolve(__dirname, '/src/domains/'),
+      translator: path.resolve(__dirname, '/src/translator/'),
+    },
     extensions: ['.ts', '.js'],
   },
   output: {

@@ -1,4 +1,4 @@
 node_modules/
 dist/
 
-.prd.env
+env.js
