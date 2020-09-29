@@ -25,8 +25,8 @@ jobs:
         with:
             node-version: ${{ matrix.node-version }}
 
-      - name: create .env file
-        run: echo "${{ secrets.RUN_ENV }}" > .env
+      # - name: create .env file
+      #   run: echo "${{ secrets.RUN_ENV }}" > .env
 
       # cf. https://github.com/actions/cache/blob/main/examples.md#node---yarn
       - name: Get yarn cache directory path
@@ -51,5 +51,5 @@ jobs:
       - name: run build
         run: yarn build
 
-      - name: run jest
-        run: yarn test
+      # - name: run jest
+      #   run: yarn test
