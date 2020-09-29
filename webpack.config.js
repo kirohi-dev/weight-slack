@@ -1,6 +1,6 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
-
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 // -p commandを渡されることでminify化される
 
 module.exports = {
@@ -21,6 +21,7 @@ module.exports = {
     ],
   },
   resolve: {
+    plugins: [new TsconfigPathsPlugin()],
     extensions: ['.ts', '.js'],
   },
   output: {
