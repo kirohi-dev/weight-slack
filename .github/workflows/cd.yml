@@ -33,9 +33,6 @@ jobs:
     - name: create .env file
       run: echo ${{ secrets.RUN_ENV }} > .env
 
-    - name: check .env
-      run: cat .env
-
     - name: Install node_modules
       run: yarn install
 

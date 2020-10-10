@@ -1,14 +1,14 @@
 import { ISendSlackContext } from 'models/messenger/SendSlackContext';
-import { ISendSlackRepository } from './SendSlackRepository';
+import { ISlackRepository } from './SlackRepository';
 
-export interface ISendSlackService {
+export interface ISlackService {
   sendMessage(context: ISendSlackContext): Promise<void>;
 }
 
-export class SendSlackService implements ISendSlackService {
-  private repository: ISendSlackRepository;
+export class SlackService implements ISlackService {
+  private repository: ISlackRepository;
 
-  constructor(repository: ISendSlackRepository) {
+  constructor(repository: ISlackRepository) {
     this.repository = repository;
   }
 
