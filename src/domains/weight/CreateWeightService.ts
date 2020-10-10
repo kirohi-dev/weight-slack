@@ -1,17 +1,17 @@
 import { ISendClackContextTranslator } from 'translator/messenger/SendSlackContextTranslator';
 import { IWeightContext } from 'models/weight/WeightContext';
-import { ISendSlackService } from '../messenger/SendSlackService';
+import { ISlackService } from '../messenger/SlackService';
 
 export interface ICreateWeightService {
   createWeight(context: IWeightContext): Promise<void>;
 }
 
 export class CreateWeightService implements ICreateWeightService {
-  private sendSlackService: ISendSlackService;
+  private sendSlackService: ISlackService;
   private translator: ISendClackContextTranslator;
 
   constructor(
-    sendSlackService: ISendSlackService,
+    sendSlackService: ISlackService,
     translator: ISendClackContextTranslator
   ) {
     this.sendSlackService = sendSlackService;

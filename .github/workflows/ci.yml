@@ -45,11 +45,11 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: yarn install
 
-      - name: run lint
-        run: yarn lint
+      # - name: run lint
+      #   run: yarn lint
 
-      - name: run build
-        run: yarn build
+      # - name: run build
+      #   run: yarn build
 
       # - name: run jest
       #   run: yarn test
