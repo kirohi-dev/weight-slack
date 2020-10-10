@@ -24,6 +24,9 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+
+    - name: create .env file
+      run: echo ${{ secrets.RUN_ENV }} > .env
     
     - name: setup node.js
       uses: actions/setup-node@v2-beta
