@@ -24,9 +24,6 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-
-    - name: create .env file
-      run: echo ${{ secrets.RUN_ENV }} > .env
     
     - name: setup node.js
       uses: actions/setup-node@v2-beta
@@ -38,12 +35,6 @@ jobs:
 
     - name: run build
       run: yarn build
-
-    - name: create test file
-      run: echo ${{ secrets.RUN_TEST }} > .test
-
-    - name: cat test file
-      run: cat .test
 
     # cf. https://github.com/GoogleCloudPlatform/github-actions/blob/master/example-workflows/cloud-run/.github/workflows/cloud-run.yml
     # Setup gcloud CLI
@@ -68,4 +59,5 @@ jobs:
           --region "$RUN_REGION" \
           --image "gcr.io/$PROJECT_ID/$SERVICE_NAME:$GITHUB_SHA" \
           --platform "managed" \
-          --allow-unauthenticated
+          --allow-unauthenticated \
+          --set-env-vars  ${{ secrets.RUN_ENV }}
