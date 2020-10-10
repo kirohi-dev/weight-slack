@@ -17,6 +17,9 @@ RUN yarn install --production
 # Copy local code to the container image.
 COPY /dist ./dist
 
+# Copy local env to the container image.
+COPY .env ./
+
 # open port 8080
 EXPOSE 8080
 

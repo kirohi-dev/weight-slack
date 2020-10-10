@@ -13,9 +13,7 @@ export class SlackRepository implements ISlackRepository {
     const headers = {
       accept: 'application/json',
     };
-    console.log('----- init');
     if (process.env && process.env.SLACK_WEBHOOK_URL) {
-      console.log('ok');
       await axios.post(
         process.env.SLACK_WEBHOOK_URL,
         {
@@ -25,6 +23,5 @@ export class SlackRepository implements ISlackRepository {
       );
       return;
     }
-    console.error('process env not found');
   }
 }
