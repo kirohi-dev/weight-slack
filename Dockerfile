@@ -10,15 +10,13 @@ WORKDIR /usr/src/app
 # Copying this separately prevents re-running npm install on every code change.
 COPY package.json ./
 COPY yarn.lock ./
+COPY .env ./
 
 # Install production dependencies.
 RUN yarn install --production
 
 # Copy local code to the container image.
 COPY /dist ./dist
-
-# Copy local env to the container image.
-COPY .env ./
 
 # open port 8080
 EXPOSE 8080
