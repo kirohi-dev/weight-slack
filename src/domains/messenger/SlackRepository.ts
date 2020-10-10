@@ -23,5 +23,6 @@ export class SlackRepository implements ISlackRepository {
       );
       return;
     }
+    console.log('not found env');
   }
 }
