@@ -23,6 +23,5 @@ export class SlackRepository implements ISlackRepository {
       );
       return;
     }
-    console.error('process env not found');
   }
 }
