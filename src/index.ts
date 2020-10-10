@@ -29,10 +29,11 @@ router.get('/', (req: express.Request, res: express.Response) => {
 
 router.post(
   '/api/weight',
-  async (req: express.Request, _: express.Response) => {
+  async (req: express.Request, res: express.Response) => {
     await createWeightService.createWeight(
       weightContextTranslator.translateFromRequest(req)
     );
+    res.send({ ok: 'ok' });
   }
 );
 
