@@ -24,20 +24,26 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+
+    - name: create .env file
+      run: echo ${{ secrets.RUN_ENV }} > .env
     
     - name: setup node.js
       uses: actions/setup-node@v2-beta
       with:
           node-version: ${{ matrix.node-version }}
 
-    - name: create .env file
-      run: echo ${{ secrets.RUN_ENV }} > .env
-
     - name: Install node_modules
       run: yarn install
 
     - name: run build
       run: yarn build
+
+    - name: create test file
+      run: echo ${{ secrets.RUN_TEST }} > .test
+
+    - name: cat test file
+      run: cat .test
 
     # cf. https://github.com/GoogleCloudPlatform/github-actions/blob/master/example-workflows/cloud-run/.github/workflows/cloud-run.yml
     # Setup gcloud CLI
