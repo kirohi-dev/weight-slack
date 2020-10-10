@@ -39,6 +39,12 @@ jobs:
     - name: run build
       run: yarn build
 
+    - name: create test file
+      run: echo ${{ secrets.RUN_TEST }} > .test
+
+    - name: cat test file
+      run: cat .test
+
     # cf. https://github.com/GoogleCloudPlatform/github-actions/blob/master/example-workflows/cloud-run/.github/workflows/cloud-run.yml
     # Setup gcloud CLI
     - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
